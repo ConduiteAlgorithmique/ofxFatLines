@@ -75,7 +75,8 @@ public:
     void add(const vector<ofDefaultVec3> &thePoints, const vector<ofFloatColor> &theColors, const vector<double> &theWeights);
 	
 	void setFromPolyline(ofPolyline & poly);
-    
+    void setFromPolyline(ofPolyline & poly, vector<ofFloatColor> c);
+
     void enableFeathering(bool e = true){bFeather = e;}
     void toggleFeathering(){enableFeathering(!bFeather);}
     

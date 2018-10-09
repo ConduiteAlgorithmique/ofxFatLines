@@ -18,8 +18,8 @@ ofxFatLine::ofxFatLine(){
 void ofxFatLine::setFromPolyline(ofPolyline & poly){
 //	ofxFatLine();
 	setGlobalColor(ofGetStyle().color);
-	setGlobalWidth(ofGetStyle().lineWidth);
-	if (!poly.getVertices().empty()){
+    setGlobalWidth(ofGetStyle().lineWidth);
+    if (!poly.getVertices().empty()){
 		addVertices(poly.getVertices());
 	for (int i = 0; i <getVertices().size(); i++) {
 		addColor(globalColor);
@@ -28,6 +28,20 @@ void ofxFatLine::setFromPolyline(ofPolyline & poly){
 	update();
 	//*/
 	}		
+}
+
+void ofxFatLine::setFromPolyline(ofPolyline & poly, vector<ofFloatColor> c){
+//	ofxFatLine();
+    setGlobalWidth(ofGetStyle().lineWidth);
+    if (!poly.getVertices().empty()){
+        addVertices(poly.getVertices());
+    for (int i = 0; i <getVertices().size(); i++) {
+        addColor(c[i]);
+        addWeight(globalWidth);
+    }
+    update();
+    //*/
+    }
 }
 //--------------------------------------------------------------
 ofxFatLine::ofxFatLine(const vector<ofDefaultVec3> &P,const vector<ofFloatColor> &C, const vector<double> &W, bool triangulation){
@@ -320,10 +334,10 @@ void ofxFatLine::updateMeshIndices(){
 void ofxFatLine::updateJoint(int index, bool bFlip){
     int l = meshVertices.size()-1;
     if (joint == OFX_FATLINE_JOINT_MITER) {
-        cout << "update joint miter" << endl;
+//        cout << "update joint miter" << endl;
         
     }else if (joint == OFX_FATLINE_JOINT_BEVEL){
-        cout << "update joint bevel" << endl;
+//        cout << "update joint bevel" << endl;
         if (bFlip) {
             pushTriangleIndices(l -1, l-2, l-6);
             pushQuadIndices(l -6, l-5, l-1, l);
@@ -332,7 +346,7 @@ void ofxFatLine::updateJoint(int index, bool bFlip){
             pushQuadIndices(l -6, l-5, l-4, l-3);        
         }
     }else if (joint == OFX_FATLINE_JOINT_ROUND){
-        cout << "update joint round" << endl;        
+//        cout << "update joint round" << endl;
         
     }
     
