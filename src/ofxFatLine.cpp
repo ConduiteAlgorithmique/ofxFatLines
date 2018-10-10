@@ -32,6 +32,7 @@ void ofxFatLine::setFromPolyline(ofPolyline & poly){
 
 void ofxFatLine::setFromPolyline(ofPolyline & poly, vector<ofFloatColor> c){
 //	ofxFatLine();
+    colors.clear();
     setGlobalWidth(ofGetStyle().lineWidth);
     if (!poly.getVertices().empty()){
         addVertices(poly.getVertices());
