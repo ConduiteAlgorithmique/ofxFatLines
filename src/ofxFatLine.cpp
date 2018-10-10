@@ -221,7 +221,7 @@ void ofxFatLine::pushNewVertex(ofVec3f v, ofVec3f p, ofVec3f r1, ofVec3f r2, flo
     }
     flippepMidVectors.push_back(p);
     if (bAligned) {
-		cout << "vertexAligned" << endl;
+//		cout << "vertexAligned" << endl;
 		pushNewAnchors(v, p*-1, colors[index], weights[index], feathering, true);
         pushNewAnchor(v, colors[index]);
         pushNewAnchors(v, p, colors[index], weights[index], feathering, false);
