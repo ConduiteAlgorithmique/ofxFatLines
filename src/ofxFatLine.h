@@ -76,6 +76,8 @@ public:
 	
 	void setFromPolyline(ofPolyline & poly);
     void setFromPolyline(ofPolyline & poly, vector<ofFloatColor> c);
+    void setFromPolyline(ofPolyline & poly, ofFloatColor c);
+
 
     void enableFeathering(bool e = true){bFeather = e;}
     void toggleFeathering(){enableFeathering(!bFeather);}
