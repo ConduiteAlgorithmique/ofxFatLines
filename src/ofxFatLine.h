@@ -115,6 +115,7 @@ public:
     ofMesh &getMesh(){return mesh;}
     void drawDebug();
     void printDebug();
+    void cleanup();
 
 protected:
     void addColor(const ofFloatColor &c);

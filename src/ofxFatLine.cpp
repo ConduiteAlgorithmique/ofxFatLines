@@ -17,9 +17,7 @@ ofxFatLine::ofxFatLine(){
 //--------------------------------------------------------------
 void ofxFatLine::setFromPolyline(ofPolyline & poly){
 //	ofxFatLine();
-    clear();
-    colors.clear();
-    weights.clear();
+    cleanup();
 	setGlobalColor(ofGetStyle().color);
     setGlobalWidth(ofGetStyle().lineWidth);
     if (!poly.getVertices().empty()){
@@ -35,9 +33,7 @@ void ofxFatLine::setFromPolyline(ofPolyline & poly){
 
 void ofxFatLine::setFromPolyline(ofPolyline & poly, ofFloatColor c){
 //	ofxFatLine();
-    clear();
-    colors.clear();
-    weights.clear();
+    cleanup();
     setGlobalColor(ofGetStyle().color);
     setGlobalWidth(ofGetStyle().lineWidth);
     if (!poly.getVertices().empty()){
@@ -51,11 +47,22 @@ void ofxFatLine::setFromPolyline(ofPolyline & poly, ofFloatColor c){
     }
 }
 
+void ofxFatLine::cleanup(){
+    clear();
+    this->colors.clear();
+    this->weights.clear();
+    this->mesh.clear();
+    this->midVectors.clear();
+    this->flippepMidVectors.clear();
+    this->capJointMesh.clear();
+    this->jointMeshColors.clear();
+    this->jointMeshIndices.clear();
+    this->jointMeshVertices.clear();
+}
+
 void ofxFatLine::setFromPolyline(ofPolyline & poly, vector<ofFloatColor> c){
 //	ofxFatLine();
-    clear();
-    colors.clear();
-    weights.clear();
+    cleanup();
     setGlobalWidth(ofGetStyle().lineWidth);
     if (!poly.getVertices().empty()){
         addVertices(poly.getVertices());
